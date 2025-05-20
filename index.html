@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Birthday Surprise</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        background: linear-gradient(135deg, #ffe0f0, #d0f4ff);
+      }
+
+      .confetti {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background: #facc15;
+        animation: fall 4s infinite linear;
+        border-radius: 50%;
+      }
+
+      @keyframes fall {
+        0% {
+          transform: translateY(-10px) rotate(0deg);
+        }
+        100% {
+          transform: translateY(100vh) rotate(360deg);
+        }
+      }
+
+      @keyframes fadeInUp {
+        0% {
+          opacity: 0;
+          transform: translateY(40px) scale(0.95);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      .animate-fadeInUp {
+        animation: fadeInUp 1s ease-out forwards;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen flex items-center justify-center relative overflow-hidden">
+
+    <!-- Confetti -->
+    <div class="confetti" style="left: 10%; animation-delay: 0s;"></div>
+    <div class="confetti" style="left: 25%; animation-delay: 0.7s;"></div>
+    <div class="confetti" style="left: 40%; animation-delay: 1.2s;"></div>
+    <div class="confetti" style="left: 60%; animation-delay: 0.5s;"></div>
+    <div class="confetti" style="left: 80%; animation-delay: 0.9s;"></div>
+    <div class="confetti" style="left: 30%; animation-delay: 1s;"></div>
+    <div class="confetti" style="left: 50%; animation-delay: 0.5s;"></div>
+    <div class="confetti" style="left: 70%; animation-delay: 1.2s;"></div>
+    <div class="confetti" style="left: 90%; animation-delay: 0.3s;"></div>
+
+    <!-- Initial Surprise Message -->
+    <div id="page1" class="bg-white rounded-3xl shadow-2xl p-12 text-center max-w-md w-full z-10 transition duration-500">
+      <h1 class="text-3xl font-bold text-pink-600 mb-4">Birthday Surprise! 🎈</h1>
+      <p class="text-gray-700 text-lg mb-8">
+        A special message is waiting for you. Ready to reveal the magic?
+      </p>
+      <button
+        onclick="revealMessage()"
+        class="bg-pink-500 hover:bg-pink-600 text-white font-semibold text-xl px-8 py-3 rounded-full transition duration-300 shadow-lg"
+      >
+        Click Here
+      </button>
+    </div>
+
+    <!-- Hidden Birthday Message -->
+    <div id="page2" class="hidden bg-white rounded-3xl shadow-2xl max-w-xl w-full p-10 text-center z-10 animate-fadeInUp">
+      <img
+        src="TANI.JPG"
+        alt="Birthday Person"
+        class="w-32 h-32 mx-auto rounded-full shadow-lg border-4 border-pink-300 mb-6 object-cover"
+      />
+      <h1 class="text-4xl font-extrabold text-pink-500 mb-4">Happy Birthday Tane! 🎂</h1>
+      <p class="text-lg text-gray-700 mb-2">
+        Wishing you a day filled with love, laughter, and all your favorite things.
+        May this year bring you closer to your dreams! 🎉🎁
+      </p>
+    </div>
+
+    <script>
+      function revealMessage() {
+        document.getElementById("page1").classList.add("hidden");
+        document.getElementById("page2").classList.remove("hidden");
+      }
+    </script>
+  </body>
+</html>
